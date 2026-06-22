@@ -1,0 +1,485 @@
+
+/* ===================================================
+   1 - FONTES
+=================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap'); /* Fonte sub-título */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); /* Fonte texto descritivo/importante */
+ 
+ 
+/* ===================================================
+   2- RESET
+=================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+    
+/* ===================================================
+  3 - VARIÁVEIS GERAIS
+=================================================== */
+:root {
+    --cor-texto1:          #ffffff;
+    --cor-texto2:          #000000;
+    --cor-texto-cabecalho: #ffffff;
+    --cor-geral01-site:    #f5f0e8;;
+    --cor-geral02-site:    #85C1E9;
+    --cor-geral03-site:    #2C3E50;
+    --fonte-logo:          "Italiana";
+    --fonte-subtitulo:     "Lora";
+    --fonte-texto:         "Roboto";
+}
+ 
+html {
+    scroll-behavior: smooth;
+}
+ 
+a {
+    text-decoration: none;
+}
+ 
+ 
+/* ===================================================
+   4 - MAIN
+=================================================== */
+main {
+    padding-top: 0;
+}
+
+ 
+ 
+/* ===================================================
+   5 - HEADER /.cabecalho
+=================================================== */
+.cabecalho {
+    background-color: transparent;
+    padding: 30px 5%;
+    transition: background-color 0.5s ease, padding 0.5s ease;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+ 
+.logo a {
+    color: #ffffff;
+    transition: color .5s ease;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.cabecalho.scrolled .logo a {
+  color: #1a1612;
+}
+.cabecalho.scrolled {
+    background-color: var(--cor-geral01-site);   
+    padding: 20px 5%; 
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+ 
+.logo img {
+    height: 100px;
+    margin-right: 30px;
+    width: auto;
+    transition: height .5s ease; 
+}
+
+.cabecalho.scrolled .logo img {
+  height: 60px; 
+}
+
+.hero {
+  height: 100vh;
+  background: url('assets/imagem01.png') center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .overlay {
+  position: absolute; inset: 0;
+  background: rgba(20,16,12,0.45);
+}
+.hero-titulo {
+  position: relative; z-index: 1;
+  color: #f5f0e8;
+  font-family: var(--fonte-subtitulo);
+  font-size: 4rem;
+  font-style: italic;
+  letter-spacing: 6px;
+}
+
+ 
+ 
+/* ===================================================
+   6 - MENU STICKY / .barra-menu
+=================================================== */
+.barra-menu {
+    background-color: var(--cor-geral03-site);
+    font-family: var(--fonte-subtitulo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+    font-family: var(--fonte-texto);
+    position: sticky;
+    top: 100px;
+    z-index: 999;
+}
+ 
+.barra-menu a {
+    color: var(--cor-texto-cabecalho);
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+ 
+.barra-menu a:hover {
+    opacity: 0.7;
+}
+
+/* ===================================================
+   7 - SOBRE / #sobre
+=================================================== */
+#sobre {
+    padding: 200px 5%;
+    font-family: var(--fonte-subtitulo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+    background-color: var(--cor-geral02-site);
+
+}
+ 
+.sobre {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+   
+}
+.sobre-conteudo{
+    width: 70%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 110px;
+}
+.sobre img {
+    width: 500px ;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-left: 10px;
+
+}
+.sobre h2 {
+    font-size: 3.6rem;
+    color: var(--cor-geral01-site);
+    text-align: center;
+    font-family: var(--fonte-subtitulo);
+    margin-bottom: 50px; 
+}
+ 
+.sobre p {
+    font-size: 1.5rem;
+    color: var(--cor-geral01-site);
+    font-family: var(--fonte-texto);
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+ 
+ 
+/* ===================================================
+    8 - DESTAQUES / CARROSSEL / #destaques
+=================================================== */
+#destaques {
+    padding: 50px 5%; 
+    background-color: var(--cor-geral01-site);
+}
+.carrossel h2 {
+    font-size: 3.3rem;
+    color: var(--cor-texto2);
+    font-family: var(--fonte-subtitulo);
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+ 
+ 
+.carrossel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+ 
+.carrossel-movimento {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+}
+ 
+.item-carrossel img {
+    width: 650px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+.item-carrossel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-carrossel p{
+    font-size: 1.4rem;
+    font-family: var(--fonte-texto);
+    color: var(--cor-cabecalho);
+    text-align: center;
+}
+ 
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-50%);
+    }
+}
+ 
+
+ 
+
+/* ==================================================
+   11 - COPA DO MUNDO
+================================================== */
+
+#copa {
+    padding: 200px 5%;
+    font-family: var(--fonte-subtitulo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+    background-color: var(--cor-geral02-site);
+}
+
+.sobre-copa {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+}
+
+.conteudo {
+    width: 70%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.sobre-copa img {
+    width: 700px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.conteudo h2 {
+    font-size: 3.6rem;
+    color: #ffffff;
+    text-align: center;
+    font-family: var(--fonte-subtitulo);
+    margin-bottom: 50px;
+}
+
+.conteudo p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-family: var(--fonte-texto);
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+/* ===================================================
+   9 - CARDÁPIO / #cardapio
+=================================================== */
+#gastronomia {
+    padding: 80px 5%; 
+    background-color: var(--cor-geral01-site); 
+}
+ 
+.pratos-intro {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+ 
+.pratos-intro h2 {
+    font-size: 3.3rem;
+    color: var(--cor-cabecalho);
+    font-family: var(--fonte-subtitulo);
+    margin-bottom: 10px;
+}
+ 
+ .pratos-intro h3 {
+    font-size: 1.5rem;
+    color: var(--cor-cabecalho);
+    font-family: var(--fonte-subtitulo);
+    margin-bottom: 0.75; 
+ } 
+#gastronomia .card-conteiner {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+ 
+.card-conteiner .card {
+    width: 300px;
+    height: 480px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(255, 240, 221);
+    padding: 5px;
+}
+ 
+.card-conteiner .card figure {
+    width: 258px;
+    height: 248px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 15px;
+    background-color: #5e0101;
+}
+ 
+.card-conteiner .card figure img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+ 
+.card h3 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: var(--fonte-subtitulo);
+    color: #5e0101;
+}
+ 
+.card p {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: var(--fonte-texto);
+}
+ 
+ 
+
+
+/* ===================================================
+   10 -  / #contato
+=================================================== */
+#contato {
+    padding: 80px 5% ;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 60px;
+    background-color: var(--cor-geral02-site);   
+}
+
+#contato .info-conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 85px;
+    margin-top: 0;
+}
+.inf-cards{
+font-family: var(--fonte-texto);
+}
+
+.inf-cards h2 {
+    font-family: var(--fonte-subtitulo);
+    font-size: 1.7rem;
+    color: var(--cor-texto1);          
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.inf-cards a {
+    flex-direction: column;
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 2px 0;
+}
+.inf-cards p {
+    font-size: 1.2rem;
+    color: var(--cor-geral01-site);
+    line-height: 1.5;
+    margin: 2px 0;
+}
+
+.mapa-conteiner {
+    margin-top: 0;
+    width: 750px;   
+    height: 650px;  
+    flex: none;        
+}
+
+.mapa-conteiner iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;      
+}
+
+@media (max-width: 768px) {
+    #contato {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .mapa-conteiner {
+        height: 350px;         
+    }
+}
+
+
+/* ===================================================
+   12 - Footer —  #rodapé
+=================================================== */
+.rodape {
+    background-color: var(--cor-geral03-site);
+    padding: 24px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape-conteudo {
+    font-family: var(--fonte-texto);
+    font-size: 0.85rem;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    text-align: center;
+}
