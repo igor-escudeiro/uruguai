@@ -357,8 +357,8 @@ main {
 
  
 .card-conteiner .card {
-    width: 300px;
-    height: 480px;
+    width: 240px;
+    height: 440px;
     border: 1px solid black;
     border-radius: 10px;
     background-color: rgb(255, 240, 221);
